@@ -8,8 +8,6 @@ services:
     image: gcb_alpine_stress
     build: .
 
-
-
 flow:
   - name: Stress
     container: gcb-alpine-stress
