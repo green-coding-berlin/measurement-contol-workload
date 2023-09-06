@@ -1,16 +1,11 @@
 # Introduction
 
-This is an example on how to run `stress-ng` in our tool and see how the CPU behaves.
-Very much like the example in `../stress` this example stesses the CPU except it increases the core count every
-5 seconds.
+This repository is used for cluster machines in the [Green Metrics Tool](https://github.com/green-coding-berlin/green-metrics-tool) to evaluate their measurement behaviour.
 
-## Building
+It should be run at defined intervals to check if the machines has a stable accuracy and bias in it's measurement.
 
-Run `docker compose build` to build the containers and use them for testing or
-instrumented by the Green Metrics Tool runner.
+Check out our timeline projects to see an overview: https://metrics.green-coding.berlin/energy-timeline.html
 
-## Using this container for development
-
-Run `docker compose run stress` to start and enter the container.
-
-It will just end when you just do `docker compose run`
+## Example links directly to timeline view
+- https://metrics.green-coding.berlin/timeline.html?uri=https://github.com/green-coding-berlin/measurement-contol-workload&filename=usage_scenario.yml&branch=&machine_id=7
+- https://metrics.green-coding.berlin/timeline.html?uri=https://github.com/green-coding-berlin/example-applications&filename=idle/usage_scenario.yml&branch=&machine_id=7
