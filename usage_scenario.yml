@@ -1,52 +1,57 @@
 ---
-name: Stress Container in 1 core steps for 5 Seconds each
+name: Sysbench validation workload
 author: Arne Tarara <arne@green-coding.berlin>
-description: Stress of the system with increasing core count up to 10 cores
+description: Stress Container in 1 core steps for 90 seconds each and log SCI
 
 services:
-  gcb-alpine-stress:
-    image: gcb_alpine_stress
+  gcb-alpine-sysbench:
+    image: gcb_alpine_sysbench
     build: .
 
 flow:
   - name: Stress
     container: gcb-alpine-stress
     commands:
-# Alpine does not have stress, so we use stress-ng
-# We need the -q flag because otherwise it will write debug to STDERR
       - type: console
-        command: sleep 5
-        note: Starting Sleep 5
+        command: sysbench --cpu-max-prime=25000 --threads=1 --time=90 --test=cpu run --events=0 --rate=0 --debug=off | gawk '/total number of events:/{print "GMT_SCI_R="$NF}'
+        note: Starting Sysbench 1
+        log-stdout: True
+        read-sci-stdout: True
       - type: console
-        command: stress-ng -c 1 -t 90 -q
-        note: Starting Stress 1
+        command: sysbench --cpu-max-prime=25000 --threads=2 --time=90 --test=cpu run --events=0 --rate=0 --debug=off | gawk '/total number of events:/{print "GMT_SCI_R="$NF}'
+        note: Starting Sysbench 2
+        log-stdout: True
+        read-sci-stdout: True
       - type: console
-        command: stress-ng -c 2 -t 90 -q
-        note: Starting Stress 2
+        command: sysbench --cpu-max-prime=25000 --threads=3 --time=90 --test=cpu run --events=0 --rate=0 --debug=off | gawk '/total number of events:/{print "GMT_SCI_R="$NF}'
+        note: Starting Sysbench 3
+        log-stdout: True
+        read-sci-stdout: True
       - type: console
-        command: stress-ng -c 3 -t 90 -q
-        note: Starting Stress 3
+        command: sysbench --cpu-max-prime=25000 --threads=4 --time=90 --test=cpu run --events=0 --rate=0 --debug=off | gawk '/total number of events:/{print "GMT_SCI_R="$NF}'
+        note: Starting Sysbench 4
+        log-stdout: True
+        read-sci-stdout: True
       - type: console
-        command: stress-ng -c 4 -t 90 -q
-        note: Starting Stress 4
+        command: sysbench --cpu-max-prime=25000 --threads=5 --time=90 --test=cpu run --events=0 --rate=0 --debug=off | gawk '/total number of events:/{print "GMT_SCI_R="$NF}'
+        note: Starting Sysbench 5
+        log-stdout: True
+        read-sci-stdout: True
       - type: console
-        command: stress-ng -c 5 -t 90 -q
-        note: Starting Stress 5
+        command: sysbench --cpu-max-prime=25000 --threads=6 --time=90 --test=cpu run --events=0 --rate=0 --debug=off | gawk '/total number of events:/{print "GMT_SCI_R="$NF}'
+        note: Starting Sysbench 6
+        log-stdout: True
+        read-sci-stdout: True
       - type: console
-        command: stress-ng -c 6 -t 90 -q
-        note: Starting Stress 6
-      - type: console
-        command: stress-ng -c 7 -t 90 -q
-        note: Starting Stress 7
-      - type: console
-        command: stress-ng -c 8 -t 90 -q
-        note: Starting Stress 8
-      - type: console
-        command: stress-ng -c 9 -t 90 -q
-        note: Starting Stress 9
+        command: sysbench --cpu-max-prime=25000 --threads=7 --time=90 --test=cpu run --events=0 --rate=0 --debug=off | gawk '/total number of events:/{print "GMT_SCI_R="$NF}'
+        note: Starting Sysbench 7
+        log-stdout: True
+        read-sci-stdout: True
       - type: console
         command: sleep 120
-        note: Starting Sleep 120
+        note: Sleep 120
       - type: console
-        command: stress-ng -c 10 -t 90 -q
-        note: Starting Stress 10
+        command: sysbench --cpu-max-prime=25000 --threads=8 --time=90 --test=cpu run --events=0 --rate=0 --debug=off | gawk '/total number of events:/{print "GMT_SCI_R="$NF}'
+        note: Starting Sysbench 8
+        log-stdout: True
+        read-sci-stdout: True
