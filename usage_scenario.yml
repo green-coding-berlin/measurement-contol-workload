@@ -10,48 +10,56 @@ services:
 
 flow:
   - name: Stress
-    container: gcb-alpine-stress
+    container: gcb-alpine-sysbench
     commands:
       - type: console
-        command: sysbench --cpu-max-prime=25000 --threads=1 --time=90 --test=cpu run --events=0 --rate=0 --debug=off | gawk '/total number of events:/{print "GMT_SCI_R="$NF}'
-        note: Starting Sysbench 1
+        shell: sh
+        command: sysbench cpu run --cpu-max-prime=25000 --threads=1 --time=15 --events=0 --rate=0 --debug=off | gawk '/total number of events:/{print "GMT_SCI_R="$NF}'
+        note: Starting Sysbench 90 Seconds 1 Threads
         log-stdout: True
         read-sci-stdout: True
       - type: console
-        command: sysbench --cpu-max-prime=25000 --threads=2 --time=90 --test=cpu run --events=0 --rate=0 --debug=off | gawk '/total number of events:/{print "GMT_SCI_R="$NF}'
-        note: Starting Sysbench 2
+        shell: sh
+        command: sysbench cpu run --cpu-max-prime=25000 --threads=2 --time=15 --events=0 --rate=0 --debug=off | gawk '/total number of events:/{print "GMT_SCI_R="$NF}'
+        note: Starting Sysbench 90 Seconds 2 Threads
         log-stdout: True
         read-sci-stdout: True
       - type: console
-        command: sysbench --cpu-max-prime=25000 --threads=3 --time=90 --test=cpu run --events=0 --rate=0 --debug=off | gawk '/total number of events:/{print "GMT_SCI_R="$NF}'
-        note: Starting Sysbench 3
+        shell: sh
+        command: sysbench cpu run --cpu-max-prime=25000 --threads=3 --time=15 --events=0 --rate=0 --debug=off | gawk '/total number of events:/{print "GMT_SCI_R="$NF}'
+        note: Starting Sysbench 90 Seconds 3 Threads
         log-stdout: True
         read-sci-stdout: True
       - type: console
-        command: sysbench --cpu-max-prime=25000 --threads=4 --time=90 --test=cpu run --events=0 --rate=0 --debug=off | gawk '/total number of events:/{print "GMT_SCI_R="$NF}'
-        note: Starting Sysbench 4
+        shell: sh
+        command: sysbench cpu run --cpu-max-prime=25000 --threads=4 --time=15 --events=0 --rate=0 --debug=off | gawk '/total number of events:/{print "GMT_SCI_R="$NF}'
+        note: Starting Sysbench 90 Seconds 4 Threads
         log-stdout: True
         read-sci-stdout: True
       - type: console
-        command: sysbench --cpu-max-prime=25000 --threads=5 --time=90 --test=cpu run --events=0 --rate=0 --debug=off | gawk '/total number of events:/{print "GMT_SCI_R="$NF}'
-        note: Starting Sysbench 5
+        shell: sh
+        command: sysbench cpu run --cpu-max-prime=25000 --threads=5 --time=15 --events=0 --rate=0 --debug=off | gawk '/total number of events:/{print "GMT_SCI_R="$NF}'
+        note: Starting Sysbench 90 Seconds 5 Threads
         log-stdout: True
         read-sci-stdout: True
       - type: console
-        command: sysbench --cpu-max-prime=25000 --threads=6 --time=90 --test=cpu run --events=0 --rate=0 --debug=off | gawk '/total number of events:/{print "GMT_SCI_R="$NF}'
-        note: Starting Sysbench 6
+        shell: sh
+        command: sysbench cpu run --cpu-max-prime=25000 --threads=6 --time=15 --events=0 --rate=0 --debug=off | gawk '/total number of events:/{print "GMT_SCI_R="$NF}'
+        note: Starting Sysbench 90 Seconds 6 Threads
         log-stdout: True
         read-sci-stdout: True
       - type: console
-        command: sysbench --cpu-max-prime=25000 --threads=7 --time=90 --test=cpu run --events=0 --rate=0 --debug=off | gawk '/total number of events:/{print "GMT_SCI_R="$NF}'
-        note: Starting Sysbench 7
+        shell: sh
+        command: sysbench cpu run --cpu-max-prime=25000 --threads=7 --time=15 --events=0 --rate=0 --debug=off | gawk '/total number of events:/{print "GMT_SCI_R="$NF}'
+        note: Starting Sysbench 90 Seconds 7 Threads
         log-stdout: True
         read-sci-stdout: True
       - type: console
         command: sleep 120
         note: Sleep 120
       - type: console
-        command: sysbench --cpu-max-prime=25000 --threads=8 --time=90 --test=cpu run --events=0 --rate=0 --debug=off | gawk '/total number of events:/{print "GMT_SCI_R="$NF}'
-        note: Starting Sysbench 8
+        shell: sh
+        command: sysbench cpu run --cpu-max-prime=25000 --threads=8 --time=600 --events=0 --rate=0 --debug=off | gawk '/total number of events:/{print "GMT_SCI_R="$NF}'
+        note: Starting Sysbench 10 Minutes 8 Threads
         log-stdout: True
         read-sci-stdout: True
