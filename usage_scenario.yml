@@ -18,32 +18,35 @@ flow:
         command: sleep 5
         note: Starting Sleep 5
       - type: console
-        command: stress-ng -c 1 -t 5 -q
+        command: stress-ng -c 1 -t 90 -q
         note: Starting Stress 1
       - type: console
-        command: stress-ng -c 2 -t 5 -q
+        command: stress-ng -c 2 -t 90 -q
         note: Starting Stress 2
       - type: console
-        command: stress-ng -c 3 -t 5 -q
+        command: stress-ng -c 3 -t 90 -q
         note: Starting Stress 3
       - type: console
-        command: stress-ng -c 4 -t 5 -q
+        command: stress-ng -c 4 -t 90 -q
         note: Starting Stress 4
       - type: console
-        command: stress-ng -c 5 -t 5 -q
+        command: stress-ng -c 5 -t 90 -q
         note: Starting Stress 5
       - type: console
-        command: stress-ng -c 6 -t 5 -q
+        command: stress-ng -c 6 -t 90 -q
         note: Starting Stress 6
       - type: console
-        command: stress-ng -c 7 -t 5 -q
+        command: stress-ng -c 7 -t 90 -q
         note: Starting Stress 7
       - type: console
-        command: stress-ng -c 8 -t 5 -q
+        command: stress-ng -c 8 -t 90 -q
         note: Starting Stress 8
       - type: console
-        command: stress-ng -c 9 -t 5 -q
+        command: stress-ng -c 9 -t 90 -q
         note: Starting Stress 9
       - type: console
-        command: stress-ng -c 10 -t 5 -q
+        command: sleep 120
+        note: Starting Sleep 120
+      - type: console
+        command: stress-ng -c 10 -t 90 -q
         note: Starting Stress 10
