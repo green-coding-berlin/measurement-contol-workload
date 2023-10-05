@@ -9,7 +9,7 @@ services:
     build: .
 
 sci:
-  R_d: Sysbench event
+  R_d: Sysbench_event
 
 flow:
   - name: Stress
