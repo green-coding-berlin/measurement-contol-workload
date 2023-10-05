@@ -8,6 +8,9 @@ services:
     image: gcb_alpine_sysbench
     build: .
 
+sci:
+  R_d: Sysbench event
+
 flow:
   - name: Stress
     container: gcb-alpine-sysbench
