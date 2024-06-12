@@ -4,8 +4,9 @@ author: Arne Tarara <arne@green-coding.berlin>
 description: Stress Container in 1 core steps for 90 seconds each and log SCI
 
 services:
-  gcb-alpine-sysbench:
-    image: gcb_alpine_sysbench
+  gcb-ubuntu-sysbench:
+    image: gcb_ubuntu_sysbench
+    dockerfile: Dockerfile_Ubuntu
     build: .
 
 sci:
@@ -13,7 +14,7 @@ sci:
 
 flow:
   - name: Stress
-    container: gcb-alpine-sysbench
+    container: gcb-ubuntu-sysbench
     commands:
       - type: console
         shell: sh
@@ -62,7 +63,7 @@ flow:
         note: Sleep 120
       - type: console
         shell: sh
-        command: sysbench cpu run --cpu-max-prime=25000 --threads=8 --time=600 --events=0 --rate=0 --debug=off | gawk '/total number of events:/{print "GMT_SCI_R="$NF}'
+        command: sysbench cpu run --cpu-max-prime=25000 --threads=8 --time=600 --events=0 --rate=0 --debug=off | awk '/total number of events:/{print "GMT_SCI_R="$NF}'
         note: Starting Sysbench Time bound - 10 Minutes 8 Threads
         log-stdout: True
         read-sci-stdout: True
